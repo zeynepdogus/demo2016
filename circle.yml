@@ -1,6 +1,6 @@
 general:
   artifacts:
-    - /home/ubuntu/demo2016/app/build/outputs/
+    - "~/helloworld.o"
 machine:
   services:
     - docker
