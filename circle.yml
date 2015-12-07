@@ -1,3 +1,6 @@
+general:
+  artifacts:
+    - /home/demo2016/app/build/outputs/apk/
 machine:
   services:
     - docker
