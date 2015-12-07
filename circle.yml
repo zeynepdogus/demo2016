@@ -12,7 +12,7 @@ machine:
 checkout:
   post:
     - mv .app.yml app.yml
-  dependencies:
+dependencies:
   cache_directories:
     - "~/docker"
   post:
