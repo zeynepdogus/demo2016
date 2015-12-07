@@ -1,5 +1,5 @@
 /**
-* @file   sample_cpp_class.cpp
+* @file   hello.cpp
 * @author Andriy Petlovanyy <software@shadowrobot.com>
 *
 * Copyright 2015 Shadow Robot Company Ltd.
@@ -27,6 +27,6 @@
 
 int main()
 {
-	cout << "Hello World!" << endl;
-	return 0;
+  std::cout << "Hello World!" << std::endl;
+  return 0;
 }
