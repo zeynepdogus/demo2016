@@ -17,9 +17,6 @@ dependencies:
     - "~/docker"
   post:
     - sudo apt-get update && sudo apt-get install bc jq && pip install requests
-    - bin/setup-circleci-secrets
-    - mkdir -p $(dirname $SRCDIR) && cp -r $(pwd)/ $SRCDIR
-
 
 test:
   override:
