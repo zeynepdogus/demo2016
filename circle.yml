@@ -1,7 +1,7 @@
 general:
   artifacts:
-    - "~/helloworld" # relative to the user's home directory
-    - "test.txt" # a single file, relative to the build directory
+    - "build/libs/*.o"
+    - "build/distributions/*.zip"
 machine:
   services:
     - docker
