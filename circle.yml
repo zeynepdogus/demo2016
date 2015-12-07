@@ -8,16 +8,10 @@ machine:
     toolset_branch: master
     server_type: circle
     used_modules: check_cache,code_style_check,unit_tests
-    GOPATH: /home/ubuntu:$GOPATH
-    SRCDIR: /home/ubuntu/src/github.com/zeynepdogus/demo2016
-    PATH: $PATH:$HOME/.local/bin:$HOME/google-cloud-sdk/bin/
     remote_shell_script: 'https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh'
 dependencies:
-  cache_directories:
-    - "~/docker"
-  post:
-    - sudo apt-get update && sudo apt-get install bc jq && pip install requests
-
+  override:
+    - docker build -t zeynepdogus/demo2016 .
 test:
   override:
     - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
