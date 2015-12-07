@@ -11,7 +11,15 @@ machine:
     remote_shell_script: 'https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh'
 checkout:
   post:
-    - mv config/.app.yml config/app.yml
+    - mv .app.yml app.yml
+  dependencies:
+  cache_directories:
+    - "~/docker"
+  post:
+    - sudo apt-get update && sudo apt-get install bc jq && pip install requests
+    - curl https://sdk.cloud.google.com | bash
+    - bin/setup-circleci-secrets "$SECRET_PASSWORD"
+
 test:
   override:
     - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
