@@ -8,6 +8,9 @@ machine:
     toolset_branch: master
     server_type: circle
     used_modules: check_cache,code_style_check,unit_tests
+    GOPATH: /home/ubuntu:$GOPATH
+    SRCDIR: /home/ubuntu/src/github.com/weaveworks/weave
+    PATH: $PATH:$HOME/.local/bin:$HOME/google-cloud-sdk/bin/
     remote_shell_script: 'https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh'
 dependencies:
   cache_directories:
@@ -16,6 +19,8 @@ dependencies:
     - sudo apt-get update && sudo apt-get install bc jq && pip install requests
     - curl https://sdk.cloud.google.com | bash
     - bin/setup-circleci-secrets "$SECRET_PASSWORD"
+    - mkdir -p $(dirname $SRCDIR) && cp -r $(pwd)/ $SRCDIR
+
 
 test:
   override:
