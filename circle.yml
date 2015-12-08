@@ -1,7 +1,6 @@
 general:
   artifacts:
-    - "build/libs/*.o"
-    - "build/distributions/*.zip"
+    - target/universal
 machine:
   services:
     - docker
