@@ -13,3 +13,4 @@ test:
   post:
     - mkdir -p $CIRCLE_ARTIFACTS/exes/
     - find . -type f -regex ".*/build/.*o" -exec cp {} $CIRCLE_ARTIFACTS/exes/ \;
+    -./cpp.o
