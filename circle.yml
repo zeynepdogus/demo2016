@@ -1,6 +1,6 @@
 general:
   artifacts:
-    - target/universal
+    - "target/universal/.cpp"
 machine:
   services:
     - docker
