@@ -1,6 +1,7 @@
 general:
   artifacts:
-    - "target/universal/.cpp"
+    - "build/libs/*.cpp"
+    - "build/distributions/*.zip"
 machine:
   services:
     - docker
